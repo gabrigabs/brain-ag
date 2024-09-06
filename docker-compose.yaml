@@ -1,0 +1,15 @@
+services:
+  postgres-compose:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: 'docker'
+      POSTGRES_USER: 'docker'
+      POSTGRES_DB: brainagdb
+    ports:
+      - '5432:5432'
+    networks:
+      - postgres-compose-network
+
+networks:
+  postgres-compose-network:
+    driver: bridge
