@@ -1,7 +1,7 @@
 import { RuralProducer } from '@prisma/client';
 import { RuralProducerRepositoryInterface } from './rural-producer.repository.interface';
 import { PrismaService } from 'src/app/prisma/services/prisma.service';
-import { Injectable, Logger } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { CreateRuralProducerDto } from '../dtos/create-rural-producer.dto';
 
 @Injectable()
@@ -12,35 +12,88 @@ export class RuralProducerRepository
   constructor(private prismaService: PrismaService) {}
 
   async create(ruralProducer: CreateRuralProducerDto): Promise<RuralProducer> {
-    this.logger.log('Adding a new producer on database');
-    return this.prismaService.ruralProducer.create({
-      data: ruralProducer,
-    });
+    try {
+      this.logger.log('Adding a new producer on database');
+      return this.prismaService.ruralProducer.create({ data: ruralProducer });
+    } catch (error) {
+      this.logger.error(
+        `Error when trying to add a new producer on database - ${error}`,
+        error.stack,
+      );
+      throw new HttpException(
+        'Internal server error',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 
   async findAll(): Promise<RuralProducer[]> {
-    this.logger.log('Getting all producers from database');
-    return this.prismaService.ruralProducer.findMany();
+    try {
+      this.logger.log('Getting all producers from database');
+      return this.prismaService.ruralProducer.findMany();
+    } catch (error) {
+      this.logger.error(
+        `Error when trying to get producers from database - ${error}`,
+        error.stack,
+      );
+      throw new HttpException(
+        'Internal server error',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 
   async findOne(id: string): Promise<RuralProducer | null> {
-    this.logger.log(`Getting a producer by id from database - id: ${id}`);
-    return this.prismaService.ruralProducer.findUnique({ where: { id } });
+    try {
+      this.logger.log(`Getting a producer by id from database - id: ${id}`);
+      return this.prismaService.ruralProducer.findUnique({ where: { id } });
+    } catch (error) {
+      this.logger.error(
+        `Error when trying to get a producer by id from database - ${error}`,
+        error.stack,
+      );
+      throw new HttpException(
+        'Internal server error',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 
   async update(
     id: string,
     ruralProducer: Partial<RuralProducer>,
   ): Promise<RuralProducer> {
-    this.logger.log(`Updating a producer on database - id: ${id}`);
-    return this.prismaService.ruralProducer.update({
-      where: { id },
-      data: ruralProducer,
-    });
+    try {
+      this.logger.log(`Updating a producer on database - id: ${id}`);
+      return this.prismaService.ruralProducer.update({
+        where: { id },
+        data: ruralProducer,
+      });
+    } catch (error) {
+      this.logger.error(
+        `Error when trying to update a producer on database - ${error}`,
+        error.stack,
+      );
+      throw new HttpException(
+        'Internal server error',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 
   async remove(id: string): Promise<void> {
-    this.logger.log(`Removing a producer from database - id: ${id}`);
-    await this.prismaService.ruralProducer.delete({ where: { id } });
+    try {
+      this.logger.log(`Removing a producer from database - id: ${id}`);
+      await this.prismaService.ruralProducer.delete({ where: { id } });
+    } catch (error) {
+      this.logger.error(
+        `Error when trying to remove a producer from database - ${error}`,
+        error.stack,
+      );
+      throw new HttpException(
+        'Internal server error',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 }
