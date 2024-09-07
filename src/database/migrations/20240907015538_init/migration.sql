@@ -1,6 +1,3 @@
--- CreateEnum
-CREATE TYPE "CropsEnum" AS ENUM ('SOJA', 'MILHO', 'ALGODAO', 'CAFÉ', 'CANA DE AÇUCAR');
-
 -- CreateTable
 CREATE TABLE "RuralProducer" (
     "id" TEXT NOT NULL,
@@ -12,7 +9,7 @@ CREATE TABLE "RuralProducer" (
     "farmTotalArea" DOUBLE PRECISION NOT NULL,
     "farmArableArea" DOUBLE PRECISION NOT NULL,
     "farmVegetationArea" DOUBLE PRECISION NOT NULL,
-    "plantedCrops" "CropsEnum"[],
+    "plantedCrops" TEXT[],
 
     CONSTRAINT "RuralProducer_pkey" PRIMARY KEY ("id")
 );
