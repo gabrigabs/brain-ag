@@ -8,6 +8,7 @@ import {
 } from 'class-validator';
 import { CropsEnum } from '../enums/crops.enum';
 import { StatesEnum } from '../enums/states.enum';
+import { Transform } from 'class-transformer';
 
 export class CreateRuralProducerDto {
   @IsString()
@@ -26,6 +27,7 @@ export class CreateRuralProducerDto {
   @IsNotEmpty()
   city: string;
 
+  @Transform((state) => state.value.toUpperCase())
   @IsString()
   @IsNotEmpty()
   @IsEnum(StatesEnum)
@@ -43,6 +45,7 @@ export class CreateRuralProducerDto {
   @IsNotEmpty()
   farmVegetationArea: number;
 
+  @Transform((crops) => crops.value.map((crop: string) => crop.toUpperCase()))
   @IsArray()
   @ArrayNotEmpty()
   @IsEnum(CropsEnum, { each: true })
