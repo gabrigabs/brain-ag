@@ -56,7 +56,6 @@ export class CreateRuralProducerRequestDto {
 
   @ApiProperty({ enum: CropsEnum, isArray: true })
   @Transform((crops) => crops.value.map((crop: string) => crop.toUpperCase()))
-  @IsArray()
   @ArrayNotEmpty()
   @IsEnum(CropsEnum, { each: true })
   plantedCrops: CropsEnum[];
