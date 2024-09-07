@@ -7,7 +7,7 @@ export interface RuralProducerServiceInterface {
     ruralProducer: CreateRuralProducerRequestDto,
   ): Promise<RuralProducer>;
   getAllProducers(): Promise<RuralProducer[]>;
-  getProducerById(id: string): Promise<RuralProducer | null>;
+  getProducerById(id: string): Promise<RuralProducer>;
   updateProducerInfo(
     id: string,
     ruralProducerUpdate: UpdateRuralProducerRequestDto,

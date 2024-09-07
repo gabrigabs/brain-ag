@@ -68,7 +68,7 @@ export class RuralProducerController
   @Get(':id')
   getRuralProducerById(
     @Param('id') id: string,
-  ): Promise<RuralProducerResponseDto | null> {
+  ): Promise<RuralProducerResponseDto> {
     this.logger.log(`Getting rural producer by id - id: ${id}`);
     return this.ruralProducerService.getProducerById(id);
   }

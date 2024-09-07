@@ -7,7 +7,7 @@ export interface RuralProducerControllerInterface {
     createRuralProducerDto: CreateRuralProducerRequestDto,
   ): Promise<RuralProducerResponseDto>;
   getAllRuralProducers(): Promise<RuralProducerResponseDto[]>;
-  getRuralProducerById(id: string): Promise<RuralProducerResponseDto | null>;
+  getRuralProducerById(id: string): Promise<RuralProducerResponseDto>;
   updateRuralProducer(
     id: string,
     updateRuralProducerDto: UpdateRuralProducerRequestDto,

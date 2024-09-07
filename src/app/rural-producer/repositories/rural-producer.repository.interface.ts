@@ -5,7 +5,7 @@ import { UpdateRuralProducerRequestDto } from '../dtos/requests/update-rural-pro
 export interface RuralProducerRepositoryInterface {
   create(ruralProducer: CreateRuralProducerRequestDto): Promise<RuralProducer>;
   findAll(): Promise<RuralProducer[]>;
-  findOne(id: string): Promise<RuralProducer>;
+  findOne(id: string): Promise<RuralProducer | null>;
   update(
     id: string,
     ruralProducer: UpdateRuralProducerRequestDto,

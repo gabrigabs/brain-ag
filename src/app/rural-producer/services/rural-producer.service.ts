@@ -33,7 +33,7 @@ export class RuralProducerService implements RuralProducerServiceInterface {
     return this.ruralProducerRepository.findAll();
   }
 
-  async getProducerById(id: string): Promise<RuralProducer | null> {
+  async getProducerById(id: string): Promise<RuralProducer> {
     this.logger.log(`Getting producer by id from repository - id: ${id}`);
     const producer = await this.ruralProducerRepository.findOne(id);
 
