@@ -18,13 +18,9 @@ export class RuralProducerRepository
       this.logger.log('Adding a new producer on database');
       return this.prismaService.ruralProducer.create({ data: ruralProducer });
     } catch (error) {
-      this.logger.error(
+      this.handleRepositoryError(
         `Error when trying to add a new producer on database - ${error}`,
         error.stack,
-      );
-      throw new HttpException(
-        'Internal server error',
-        HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }
@@ -34,13 +30,9 @@ export class RuralProducerRepository
       this.logger.log('Getting all producers from database');
       return this.prismaService.ruralProducer.findMany();
     } catch (error) {
-      this.logger.error(
+      this.handleRepositoryError(
         `Error when trying to get producers from database - ${error}`,
         error.stack,
-      );
-      throw new HttpException(
-        'Internal server error',
-        HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }
@@ -50,13 +42,9 @@ export class RuralProducerRepository
       this.logger.log(`Getting a producer by id from database - id: ${id}`);
       return this.prismaService.ruralProducer.findUnique({ where: { id } });
     } catch (error) {
-      this.logger.error(
+      this.handleRepositoryError(
         `Error when trying to get a producer by id from database - ${error}`,
         error.stack,
-      );
-      throw new HttpException(
-        'Internal server error',
-        HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }
@@ -72,13 +60,9 @@ export class RuralProducerRepository
         data: ruralProducer,
       });
     } catch (error) {
-      this.logger.error(
+      this.handleRepositoryError(
         `Error when trying to update a producer on database - ${error}`,
         error.stack,
-      );
-      throw new HttpException(
-        'Internal server error',
-        HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
   }
@@ -88,14 +72,18 @@ export class RuralProducerRepository
       this.logger.log(`Removing a producer from database - id: ${id}`);
       await this.prismaService.ruralProducer.delete({ where: { id } });
     } catch (error) {
-      this.logger.error(
-        `Error when trying to remove a producer from database - ${error}`,
+      this.handleRepositoryError(
+        `Error when trying to remove a producer on database - ${error}`,
         error.stack,
       );
-      throw new HttpException(
-        'Internal server error',
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
     }
+  }
+
+  private handleRepositoryError(message: string, stack: string): void {
+    this.logger.error(message, stack);
+    throw new HttpException(
+      'Internal server error',
+      HttpStatus.INTERNAL_SERVER_ERROR,
+    );
   }
 }

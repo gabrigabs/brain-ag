@@ -38,7 +38,7 @@ export class RuralProducerService implements RuralProducerServiceInterface {
     const producer = await this.ruralProducerRepository.findOne(id);
 
     if (!producer) {
-      this.logger.error(
+      this.logger.warn(
         `Failed to get producer - producer not found - id: ${id}`,
       );
       throw new HttpException('Producer not found', HttpStatus.NOT_FOUND);

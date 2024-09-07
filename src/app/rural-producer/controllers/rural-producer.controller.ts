@@ -78,6 +78,7 @@ export class RuralProducerController
     description: 'Returns an object of updated rural producer',
   })
   @ApiOkResponse({ type: RuralProducerResponseDto })
+  @ApiBadRequestResponse({ description: 'Validation Error' })
   @ApiNotFoundResponse({ description: 'Rural producer not found' })
   @ApiInternalServerErrorResponse({ description: 'Internal server error' })
   @Put(':id')
