@@ -25,17 +25,19 @@ export class RuralProducerService implements RuralProducerServiceInterface {
 
     ruralProducer.cpfOrCnpj = formatCpfOrCnpj(ruralProducer.cpfOrCnpj);
 
-    return this.ruralProducerRepository.create(ruralProducer);
+    return this.ruralProducerRepository.addRuralProducer(ruralProducer);
   }
 
   async getAllProducers(): Promise<RuralProducer[]> {
     this.logger.log('Getting all producers from repository');
-    return this.ruralProducerRepository.findAll();
+    return this.ruralProducerRepository.findAllRuralProducers();
   }
 
   async getProducerById(id: string): Promise<RuralProducer> {
     this.logger.log(`Getting producer by id from repository - id: ${id}`);
-    const producer = await this.ruralProducerRepository.findOne(id);
+    const producer = await this.ruralProducerRepository.findOneRuralProducer(
+      id,
+    );
 
     if (!producer) {
       this.logger.warn(
@@ -61,7 +63,10 @@ export class RuralProducerService implements RuralProducerServiceInterface {
 
     updatedProducer.cpfOrCnpj = formatCpfOrCnpj(updatedProducer.cpfOrCnpj);
 
-    return this.ruralProducerRepository.update(id, updatedProducer);
+    return this.ruralProducerRepository.updateOneRuralProducer(
+      id,
+      updatedProducer,
+    );
   }
 
   async deleteProducer(id: string): Promise<void> {
@@ -70,7 +75,7 @@ export class RuralProducerService implements RuralProducerServiceInterface {
     );
     await this.getProducerById(id);
 
-    return this.ruralProducerRepository.remove(id);
+    return this.ruralProducerRepository.removeOneRuralProducer(id);
   }
 
   private async validateRuralProducer(

@@ -11,7 +11,7 @@ export class RuralProducerRepository
   private readonly logger = new Logger(RuralProducerRepository.name);
   constructor(private prismaService: PrismaService) {}
 
-  async create(
+  async addRuralProducer(
     ruralProducer: CreateRuralProducerRequestDto,
   ): Promise<RuralProducer> {
     try {
@@ -25,7 +25,7 @@ export class RuralProducerRepository
     }
   }
 
-  async findAll(): Promise<RuralProducer[]> {
+  async findAllRuralProducers(): Promise<RuralProducer[]> {
     try {
       this.logger.log('Getting all producers from database');
       return this.prismaService.ruralProducer.findMany();
@@ -37,7 +37,7 @@ export class RuralProducerRepository
     }
   }
 
-  async findOne(id: string): Promise<RuralProducer | null> {
+  async findOneRuralProducer(id: string): Promise<RuralProducer | null> {
     try {
       this.logger.log(`Getting a producer by id from database - id: ${id}`);
       return this.prismaService.ruralProducer.findUnique({ where: { id } });
@@ -49,7 +49,7 @@ export class RuralProducerRepository
     }
   }
 
-  async update(
+  async updateOneRuralProducer(
     id: string,
     ruralProducer: Partial<RuralProducer>,
   ): Promise<RuralProducer> {
@@ -67,7 +67,7 @@ export class RuralProducerRepository
     }
   }
 
-  async remove(id: string): Promise<void> {
+  async removeOneRuralProducer(id: string): Promise<void> {
     try {
       this.logger.log(`Removing a producer from database - id: ${id}`);
       await this.prismaService.ruralProducer.delete({ where: { id } });
