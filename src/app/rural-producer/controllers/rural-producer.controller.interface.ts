@@ -1,16 +1,16 @@
-import { RuralProducer } from '@prisma/client';
-import { CreateRuralProducerDto } from '../dtos/create-rural-producer.dto';
-import { UpdateRuralProducerDto } from '../dtos/update-rural-producer.dto';
+import { CreateRuralProducerRequestDto } from '../dtos/requests/create-rural-producer-request.dto';
+import { UpdateRuralProducerRequestDto } from '../dtos/requests/update-rural-producer-request.dto';
+import { RuralProducerResponseDto } from '../dtos/responses/rural-producer-response.dto';
 
 export interface RuralProducerControllerInterface {
   createRuralProducer(
-    createRuralProducerDto: CreateRuralProducerDto,
-  ): Promise<RuralProducer>;
-  getAllRuralProducers(): Promise<RuralProducer[]>;
-  getRuralProducerById(id: string): Promise<RuralProducer | null>;
+    createRuralProducerDto: CreateRuralProducerRequestDto,
+  ): Promise<RuralProducerResponseDto>;
+  getAllRuralProducers(): Promise<RuralProducerResponseDto[]>;
+  getRuralProducerById(id: string): Promise<RuralProducerResponseDto | null>;
   updateRuralProducer(
     id: string,
-    updateRuralProducerDto: UpdateRuralProducerDto,
-  ): Promise<RuralProducer>;
+    updateRuralProducerDto: UpdateRuralProducerRequestDto,
+  ): Promise<RuralProducerResponseDto>;
   deleteRuralProducer(id: string): Promise<void>;
 }
