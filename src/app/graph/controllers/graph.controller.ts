@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Logger } from '@nestjs/common';
 import {
   ApiInternalServerErrorResponse,
   ApiOkResponse,
@@ -12,6 +12,7 @@ import { GraphControllerInterface } from './graph.controller.interface';
 @ApiTags('graph')
 @Controller('graph')
 export class GraphController implements GraphControllerInterface {
+  private logger = new Logger(GraphController.name);
   constructor(private readonly graphService: GraphService) {}
 
   @ApiOperation({
@@ -23,6 +24,7 @@ export class GraphController implements GraphControllerInterface {
   @ApiInternalServerErrorResponse({ description: 'Internal server error' })
   @Get('graph-data')
   getGraphData(): Promise<GraphDataResponseDto> {
+    this.logger.log('Getting graph data');
     return this.graphService.getGraphData();
   }
 }

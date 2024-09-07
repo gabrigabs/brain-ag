@@ -43,6 +43,7 @@ export class RuralProducerController
   createRuralProducer(
     @Body() createRuralProducerDto: CreateRuralProducerRequestDto,
   ): Promise<RuralProducerResponseDto> {
+    this.logger.log('Registering a new rural producer');
     return this.ruralProducerService.registerProducer(createRuralProducerDto);
   }
 
