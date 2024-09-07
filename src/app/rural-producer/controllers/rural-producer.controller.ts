@@ -6,6 +6,7 @@ import {
   Param,
   Delete,
   Put,
+  Logger,
 } from '@nestjs/common';
 import { RuralProducerService } from '../services/rural-producer.service';
 import { CreateRuralProducerDto } from '../dtos/create-rural-producer.dto';
@@ -17,6 +18,7 @@ import { RuralProducer } from '@prisma/client';
 export class RuralProducerController
   implements RuralProducerControllerInterface
 {
+  private logger = new Logger(RuralProducerController.name);
   constructor(private readonly ruralProducerService: RuralProducerService) {}
 
   @Post()
@@ -28,11 +30,13 @@ export class RuralProducerController
 
   @Get()
   getAllRuralProducers(): Promise<RuralProducer[]> {
+    this.logger.log('Getting all rural producers');
     return this.ruralProducerService.getAllProducers();
   }
 
   @Get(':id')
   getRuralProducerById(@Param('id') id: string): Promise<RuralProducer | null> {
+    this.logger.log(`Getting rural producer by id - id: ${id}`);
     return this.ruralProducerService.getProducerById(id);
   }
 
@@ -41,6 +45,7 @@ export class RuralProducerController
     @Param('id') id: string,
     @Body() updateRuralProducerDto: UpdateRuralProducerDto,
   ): Promise<RuralProducer> {
+    this.logger.log(`Updating rural producer by id - id: ${id}`);
     return this.ruralProducerService.updateProducerInfo(
       id,
       updateRuralProducerDto,
@@ -49,6 +54,7 @@ export class RuralProducerController
 
   @Delete(':id')
   deleteRuralProducer(@Param('id') id: string): Promise<void> {
+    this.logger.log(`Deleting rural producer by id - id: ${id}`);
     return this.ruralProducerService.deleteProducer(id);
   }
 }
