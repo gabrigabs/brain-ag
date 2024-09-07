@@ -1,12 +1,13 @@
-import { CropsEnum } from '@prisma/client';
-
 import {
   ArrayNotEmpty,
   IsArray,
+  IsEnum,
   IsNotEmpty,
   IsNumber,
   IsString,
 } from 'class-validator';
+import { CropsEnum } from '../enums/crops.enum';
+import { StatesEnum } from '../enums/states.enum';
 
 export class CreateRuralProducerDto {
   @IsString()
@@ -27,7 +28,8 @@ export class CreateRuralProducerDto {
 
   @IsString()
   @IsNotEmpty()
-  state: string;
+  @IsEnum(StatesEnum)
+  state: StatesEnum;
 
   @IsNumber()
   @IsNotEmpty()
@@ -43,5 +45,6 @@ export class CreateRuralProducerDto {
 
   @IsArray()
   @ArrayNotEmpty()
+  @IsEnum(CropsEnum, { each: true })
   plantedCrops: CropsEnum[];
 }
