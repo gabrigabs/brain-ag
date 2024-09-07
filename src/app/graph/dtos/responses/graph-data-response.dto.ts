@@ -6,7 +6,7 @@ import { FarmByStateDto } from '../farm-by-state.dto';
 
 export class GraphDataResponseDto {
   @IsNumber()
-  @ApiProperty({ description: 'Total number of farms' })
+  @ApiProperty()
   totalFarms: number;
 
   @IsObject()
