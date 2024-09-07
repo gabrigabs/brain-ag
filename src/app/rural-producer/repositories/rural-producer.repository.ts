@@ -1,6 +1,6 @@
 import { RuralProducer } from '@prisma/client';
 import { RuralProducerRepositoryInterface } from './rural-producer.repository.interface';
-import { PrismaService } from 'src/app/prisma/services/prisma.service';
+import { PrismaService } from '../../../app/prisma/services/prisma.service';
 import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { CreateRuralProducerRequestDto } from '../dtos/requests/create-rural-producer-request.dto';
 import {

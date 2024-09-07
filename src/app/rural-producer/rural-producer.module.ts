@@ -7,5 +7,6 @@ import { RuralProducerRepository } from './repositories/rural-producer.repositor
 @Module({
   controllers: [RuralProducerController],
   providers: [RuralProducerService, RuralProducerRepository, PrismaService],
+  exports: [RuralProducerRepository],
 })
 export class RuralProducerModule {}

@@ -1,15 +1,14 @@
-export type StateCountFarmData = {
+export class StateCountFarmData {
   state: string;
   count: number;
-};
-export type PlantedCropsFarmData = {
+}
+export class PlantedCropsFarmData {
   plantedCrops: string[];
   count: number;
-};
-export type AggregatedFarmsData = {
-  farmTotalArea: number;
-  farmArableArea: number;
-  farmVegetationArea: number;
-
+}
+export class FarmsAreaData {
+  farmsTotalArea: number;
+  farmsArableArea: number;
+  farmsVegetationArea: number;
   count: number;
-};
+}

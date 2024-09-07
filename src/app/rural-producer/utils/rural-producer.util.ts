@@ -1,5 +1,5 @@
 import {
-  AggregatedFarmsData,
+  FarmsAreaData,
   PlantedCropsFarmData,
   StateCountFarmData,
 } from '../types/rural-producer.types';
@@ -26,9 +26,9 @@ export const formatFarmsByCropsResponse = (data): PlantedCropsFarmData[] =>
     count: item._count._all,
   }));
 
-export const formatFarmsTotalAreaResponse = (data): AggregatedFarmsData => ({
-  farmTotalArea: data._sum.farmTotalArea,
-  farmArableArea: data._sum.farmArableArea,
-  farmVegetationArea: data._sum.farmVegetationArea,
+export const formatFarmsTotalAreaResponse = (data): FarmsAreaData => ({
+  farmsTotalArea: data._sum.farmTotalArea,
+  farmsArableArea: data._sum.farmArableArea,
+  farmsVegetationArea: data._sum.farmVegetationArea,
   count: data._count._all,
 });
