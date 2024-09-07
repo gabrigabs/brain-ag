@@ -7,10 +7,11 @@ import {
 } from '@nestjs/swagger';
 import { GraphService } from '../services/graph.service';
 import { GraphDataResponseDto } from '../dtos/responses/graph-data-response.dto';
+import { GraphControllerInterface } from './graph.controller.interface';
 
 @ApiTags('graph')
 @Controller('graph')
-export class GraphController {
+export class GraphController implements GraphControllerInterface {
   constructor(private readonly graphService: GraphService) {}
 
   @ApiOperation({
