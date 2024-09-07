@@ -2,13 +2,13 @@ import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { RuralProducer } from '@prisma/client';
 import { RuralProducerServiceInterface } from './rural-producer.service.interface';
 import { RuralProducerRepository } from '../repositories/rural-producer.repository';
-import { CreateRuralProducerDto } from '../dtos/create-rural-producer.dto';
+import { CreateRuralProducerRequestDto } from '../dtos/requests/create-rural-producer-request.dto';
 import {
   formatCpfOrCnpj,
   validateIsCpfOrCnpj,
 } from '../../../app/commons/utils/cpf-cnpj.util';
 import { validateFarmArea } from '../utils/rural-producer.util';
-import { UpdateRuralProducerDto } from '../dtos/update-rural-producer.dto';
+import { UpdateRuralProducerRequestDto } from '../dtos/requests/update-rural-producer-request.dto';
 
 @Injectable()
 export class RuralProducerService implements RuralProducerServiceInterface {
@@ -18,14 +18,14 @@ export class RuralProducerService implements RuralProducerServiceInterface {
   ) {}
 
   async registerProducer(
-    producer: CreateRuralProducerDto,
+    ruralProducer: CreateRuralProducerRequestDto,
   ): Promise<RuralProducer> {
     this.logger.log('Tryng to register a new producer on repository');
-    await this.validateRuralProducer(producer);
+    await this.validateRuralProducer(ruralProducer);
 
-    producer.cpfOrCnpj = formatCpfOrCnpj(producer.cpfOrCnpj);
+    ruralProducer.cpfOrCnpj = formatCpfOrCnpj(ruralProducer.cpfOrCnpj);
 
-    return this.ruralProducerRepository.create(producer);
+    return this.ruralProducerRepository.create(ruralProducer);
   }
 
   async getAllProducers(): Promise<RuralProducer[]> {
@@ -49,13 +49,13 @@ export class RuralProducerService implements RuralProducerServiceInterface {
 
   async updateProducerInfo(
     id: string,
-    updateProducerDto: UpdateRuralProducerDto,
+    ruralProducerUpdate: UpdateRuralProducerRequestDto,
   ): Promise<RuralProducer> {
     const existingProducer = await this.getProducerById(id);
 
     const updatedProducer: RuralProducer = {
       ...existingProducer,
-      ...updateProducerDto,
+      ...ruralProducerUpdate,
     };
     await this.validateRuralProducer(updatedProducer);
 
@@ -74,9 +74,9 @@ export class RuralProducerService implements RuralProducerServiceInterface {
   }
 
   private async validateRuralProducer(
-    producer: Partial<RuralProducer>,
+    ruralProducer: Partial<RuralProducer>,
   ): Promise<void> {
-    const isValidCpfOrCnpj = validateIsCpfOrCnpj(producer.cpfOrCnpj);
+    const isValidCpfOrCnpj = validateIsCpfOrCnpj(ruralProducer.cpfOrCnpj);
 
     if (!isValidCpfOrCnpj) {
       this.logger.warn(
@@ -86,9 +86,9 @@ export class RuralProducerService implements RuralProducerServiceInterface {
     }
 
     const isValidFarmArea = validateFarmArea(
-      producer.farmTotalArea,
-      producer.farmArableArea,
-      producer.farmVegetationArea,
+      ruralProducer.farmTotalArea,
+      ruralProducer.farmArableArea,
+      ruralProducer.farmVegetationArea,
     );
 
     if (!isValidFarmArea) {

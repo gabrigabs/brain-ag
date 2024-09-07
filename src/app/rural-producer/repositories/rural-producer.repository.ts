@@ -2,7 +2,7 @@ import { RuralProducer } from '@prisma/client';
 import { RuralProducerRepositoryInterface } from './rural-producer.repository.interface';
 import { PrismaService } from 'src/app/prisma/services/prisma.service';
 import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
-import { CreateRuralProducerDto } from '../dtos/create-rural-producer.dto';
+import { CreateRuralProducerRequestDto } from '../dtos/requests/create-rural-producer-request.dto';
 
 @Injectable()
 export class RuralProducerRepository
@@ -11,7 +11,9 @@ export class RuralProducerRepository
   private readonly logger = new Logger(RuralProducerRepository.name);
   constructor(private prismaService: PrismaService) {}
 
-  async create(ruralProducer: CreateRuralProducerDto): Promise<RuralProducer> {
+  async create(
+    ruralProducer: CreateRuralProducerRequestDto,
+  ): Promise<RuralProducer> {
     try {
       this.logger.log('Adding a new producer on database');
       return this.prismaService.ruralProducer.create({ data: ruralProducer });
