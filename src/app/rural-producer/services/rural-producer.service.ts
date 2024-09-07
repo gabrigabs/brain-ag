@@ -84,9 +84,7 @@ export class RuralProducerService implements RuralProducerServiceInterface {
     const isValidCpfOrCnpj = validateIsCpfOrCnpj(ruralProducer.cpfOrCnpj);
 
     if (!isValidCpfOrCnpj) {
-      this.logger.warn(
-        'Failed to validate producer - invalid Cpf or Cnpj for producer',
-      );
+      this.logger.warn('Failed to validate producer - invalid Cpf or Cnpj ');
       throw new HttpException('Invalid Cpf or Cnpj', HttpStatus.BAD_REQUEST);
     }
 
@@ -97,9 +95,7 @@ export class RuralProducerService implements RuralProducerServiceInterface {
     );
 
     if (!isValidFarmArea) {
-      this.logger.warn(
-        'Failed to validate producer - Invalid farm area for producer',
-      );
+      this.logger.warn('Failed to validate producer - Invalid farm area');
       throw new HttpException(
         'The sum of farm arable area and vegetation area must be lower than farm total area',
         HttpStatus.BAD_REQUEST,

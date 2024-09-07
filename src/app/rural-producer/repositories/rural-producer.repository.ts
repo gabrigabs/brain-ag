@@ -3,6 +3,15 @@ import { RuralProducerRepositoryInterface } from './rural-producer.repository.in
 import { PrismaService } from 'src/app/prisma/services/prisma.service';
 import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { CreateRuralProducerRequestDto } from '../dtos/requests/create-rural-producer-request.dto';
+import {
+  PlantedCropsFarmData,
+  StateCountFarmData,
+} from '../types/rural-producer.types';
+import {
+  formatFarmsByCropsResponse,
+  formatFarmsByStateResponse,
+  formatFarmsTotalAreaResponse,
+} from '../utils/rural-producer.util';
 
 @Injectable()
 export class RuralProducerRepository
@@ -74,6 +83,70 @@ export class RuralProducerRepository
     } catch (error) {
       this.handleRepositoryError(
         `Error when trying to remove a producer on database - ${error}`,
+        error.stack,
+      );
+    }
+  }
+
+  async countFarmsByState(): Promise<StateCountFarmData[]> {
+    try {
+      this.logger.log('Getting count of farms by state from database');
+
+      const result = await this.prismaService.ruralProducer.groupBy({
+        by: ['state'],
+        _count: {
+          _all: true,
+        },
+      });
+
+      return formatFarmsByStateResponse(result);
+    } catch (error) {
+      this.handleRepositoryError(
+        `Error when trying to get count of farms by state from database - ${error}`,
+        error.stack,
+      );
+    }
+  }
+
+  async countFarmsByCrops(): Promise<PlantedCropsFarmData[]> {
+    try {
+      this.logger.log('Getting count of farms by culture from database');
+
+      const result = await this.prismaService.ruralProducer.groupBy({
+        by: ['plantedCrops'],
+        _count: {
+          _all: true,
+        },
+      });
+
+      return formatFarmsByCropsResponse(result);
+    } catch (error) {
+      this.handleRepositoryError(
+        `Error when trying to get count of farms by culture from database - ${error}`,
+        error.stack,
+      );
+    }
+  }
+
+  async countFarmsAreas() {
+    try {
+      this.logger.log('Getting count of farms areas from database');
+
+      const result = await this.prismaService.ruralProducer.aggregate({
+        _sum: {
+          farmTotalArea: true,
+          farmArableArea: true,
+          farmVegetationArea: true,
+        },
+        _count: {
+          _all: true,
+        },
+      });
+
+      return formatFarmsTotalAreaResponse(result);
+    } catch (error) {
+      this.handleRepositoryError(
+        `Error when trying to count farms areas from database - ${error}`,
         error.stack,
       );
     }
