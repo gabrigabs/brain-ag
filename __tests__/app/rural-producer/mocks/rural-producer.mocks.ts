@@ -67,15 +67,21 @@ export const farmsByStateUnformatedMock = [
 
 export const farmsByCropsUnformatedMock = [
   {
-    plantedCrops: 'CAFE',
+    plantedCrops: ['CAFE', 'CANA DE AÇUCAR'],
     _count: {
-      _all: 5,
+      _all: 1,
     },
   },
   {
-    plantedCrops: 'CANA DE AÇUCAR',
+    plantedCrops: ['CAFE'],
     _count: {
-      _all: 3,
+      _all: 4,
+    },
+  },
+  {
+    plantedCrops: ['CANA DE AÇUCAR'],
+    _count: {
+      _all: 2,
     },
   },
 ];
@@ -93,12 +99,16 @@ export const countFarmsByStateFormatedMock = [
 
 export const countFarmsByCropsFormatedMock = [
   {
-    plantedCrops: 'CAFE',
-    count: 5,
+    plantedCrops: ['CAFE', 'CANA DE AÇUCAR'],
+    count: 1,
   },
   {
-    plantedCrops: 'CANA DE AÇUCAR',
-    count: 3,
+    plantedCrops: ['CAFE'],
+    count: 4,
+  },
+  {
+    plantedCrops: ['CANA DE AÇUCAR'],
+    count: 2,
   },
 ];
 

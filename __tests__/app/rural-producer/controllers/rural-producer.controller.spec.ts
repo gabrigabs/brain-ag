@@ -9,12 +9,14 @@ import { RuralProducerRepository } from '../../../../src/app/rural-producer/repo
 import { PrismaService } from '../../../../src/app/prisma/services/prisma.service';
 import { Logger } from '@nestjs/common';
 import { randomUUID } from 'crypto';
+import { AppModule } from '../../../../src/app/app.module';
 describe('RuralProducerController', () => {
   let ruralProducerController: RuralProducerController;
   let ruralProducerService: RuralProducerService;
 
   beforeEach(async () => {
     const moduleRef: TestingModule = await Test.createTestingModule({
+      imports: [AppModule],
       controllers: [RuralProducerController],
       providers: [PrismaService, RuralProducerRepository, RuralProducerService],
     }).compile();
