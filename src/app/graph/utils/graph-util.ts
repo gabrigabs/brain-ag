@@ -29,11 +29,7 @@ const mapFarmsByCrops = (
 
   farmsByCrops.forEach((farm) => {
     farm.plantedCrops.forEach((crop) => {
-      if (result[crop]) {
-        result[crop] += farm.count;
-      } else {
-        result[crop] = farm.count;
-      }
+      result[crop] ? (result[crop] += farm.count) : (result[crop] = farm.count);
     });
   });
 
