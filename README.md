@@ -12,7 +12,7 @@ An API that can manage rural producers farm data and also obtain detailed data w
 - [Deployment](#deployment)
 - [Requirements](#requirements)
 - [Documentation](#documentation)
-- [Installation](#authentication)
+- [Installation](#installation)
 - [Running the API](#running-the-api)
 - [Testing](#testing)
 
@@ -70,7 +70,7 @@ $ npx prisma migrate dev --name init
 
 Once the installation is complete, you can run the application locally and execute unit tests.
 
-## Running Api
+## Running the Api
 
 Now you can start application with:
 
