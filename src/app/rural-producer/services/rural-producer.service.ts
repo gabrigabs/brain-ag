@@ -53,6 +53,7 @@ export class RuralProducerService implements RuralProducerServiceInterface {
     id: string,
     ruralProducerUpdate: UpdateRuralProducerRequestDto,
   ): Promise<RuralProducer> {
+    this.logger.log(`Requesting to update producer info - id: ${id}`);
     const existingProducer = await this.getProducerById(id);
 
     const updatedProducer: RuralProducer = {
@@ -84,7 +85,7 @@ export class RuralProducerService implements RuralProducerServiceInterface {
     const isValidCpfOrCnpj = validateIsCpfOrCnpj(ruralProducer.cpfOrCnpj);
 
     if (!isValidCpfOrCnpj) {
-      this.logger.warn('Failed to validate producer - invalid Cpf or Cnpj ');
+      this.logger.warn('Failed to validate producer - invalid Cpf or Cnpj');
       throw new HttpException('Invalid Cpf or Cnpj', HttpStatus.BAD_REQUEST);
     }
 
