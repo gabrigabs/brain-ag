@@ -49,3 +49,73 @@ export const ruralProducerResponseMock = {
   farmVegetationArea: 50000,
   plantedCrops: ['CAFÉ', 'CANA DE AÇUCAR', 'SOJA'],
 };
+
+export const farmsByStateUnformatedMock = [
+  {
+    state: 'CE',
+    _count: {
+      _all: 5,
+    },
+  },
+  {
+    state: 'SP',
+    _count: {
+      _all: 3,
+    },
+  },
+];
+
+export const farmsByCropsUnformatedMock = [
+  {
+    plantedCrops: 'CAFE',
+    _count: {
+      _all: 5,
+    },
+  },
+  {
+    plantedCrops: 'CANA DE AÇUCAR',
+    _count: {
+      _all: 3,
+    },
+  },
+];
+
+export const countFarmsByStateFormatedMock = [
+  {
+    state: 'CE',
+    count: 5,
+  },
+  {
+    state: 'SP',
+    count: 3,
+  },
+];
+
+export const countFarmsByCropsFormatedMock = [
+  {
+    plantedCrops: 'CAFE',
+    count: 5,
+  },
+  {
+    plantedCrops: 'CANA DE AÇUCAR',
+    count: 3,
+  },
+];
+
+export const farmsTotalAreaUnformatedMock = {
+  _sum: {
+    farmTotalArea: 100000,
+    farmArableArea: 50000,
+    farmVegetationArea: 50000,
+  },
+  _count: {
+    _all: 3,
+  },
+};
+
+export const farmsTotalAreaFormatedMock = {
+  farmsTotalArea: 100000,
+  farmsArableArea: 50000,
+  farmsVegetationArea: 50000,
+  count: 3,
+};

@@ -110,7 +110,7 @@ export class RuralProducerRepository
 
   async countFarmsByCrops(): Promise<PlantedCropsFarmData[]> {
     try {
-      this.logger.log('Getting count of farms by culture from database');
+      this.logger.log('Getting count of farms by crops from database');
 
       const result = await this.prismaService.ruralProducer.groupBy({
         by: ['plantedCrops'],
@@ -122,7 +122,7 @@ export class RuralProducerRepository
       return formatFarmsByCropsResponse(result);
     } catch (error) {
       this.handleRepositoryError(
-        `Error when trying to get count of farms by culture from database - ${error}`,
+        `Error when trying to get count of farms by crops from database - ${error}`,
         error.stack,
       );
     }
