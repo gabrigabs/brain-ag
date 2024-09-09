@@ -22,9 +22,9 @@ The Rural Producer API is a RESTful API designed to manage rural producers and t
 
 ## Deployment
 
-[![Deployed to AWS](https://img.shields.io/badge/Deployed%20to-AWS-430098.svg)](http://ec2-98-81-115-106.compute-1.amazonaws.com/docs)
+[![Deployed to AWS](https://img.shields.io/badge/Deployed%20to-AWS-430098.svg)](http://ec2-18-206-189-157.compute-1.amazonaws.com/docs)
 
-This application is deployed to AWS. You can access the live application [here](http://ec2-98-81-115-106.compute-1.amazonaws.com/docs).
+This application is deployed to AWS. You can access the live application [here](http://ec2-18-206-189-157.compute-1.amazonaws.com/docs).
 
 ## Requirements
 
@@ -40,7 +40,7 @@ This application is deployed to AWS. You can access the live application [here](
 
 ## Documentation
 
-This API is documented using Swagger. You can find the API documentation at /docs endpoint at your localhost instance or view the docs on our deployment [here](http://ec2-98-81-115-106.compute-1.amazonaws.com/docs).
+This API is documented using Swagger. You can find the API documentation at /docs endpoint at your localhost instance or view the docs on our deployment [here](http://ec2-18-206-189-157.compute-1.amazonaws.com/docs).
 
 ## Installation
 
