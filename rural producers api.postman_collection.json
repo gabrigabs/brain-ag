@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "6d85be70-0c99-4b63-a956-e7931b57a9f2",
+		"name": "rural producers api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17451303"
+	},
+	"item": [
+		{
+			"name": "create a new rural producer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"cpfOrCnpj\":\"212.675.180-57\",\r\n\t\"producerName\":\"John Doe\",\r\n\t\"farmName\":\"John Doe's farm\",\r\n\t\"city\":\"Fortaleza\",\r\n\t\"state\":\"CE\",\r\n\t\"farmTotalArea\":1000000,\r\n\t\"farmArableArea\":50000,\r\n\t\"farmVegetationArea\":50000,\r\n\t\"plantedCrops\":[\"CAFÉ\", \"CANA DE AÇUCAR\", \"SOJA\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://ec2-98-81-115-106.compute-1.amazonaws.com/api/v1/rural-producers",
+					"protocol": "http",
+					"host": [
+						"ec2-98-81-115-106",
+						"compute-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rural-producers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all rural producers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-98-81-115-106.compute-1.amazonaws.com/api/v1/rural-producers",
+					"protocol": "http",
+					"host": [
+						"ec2-98-81-115-106",
+						"compute-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rural-producers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get rural producer by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://ec2-98-81-115-106.compute-1.amazonaws.com/api/v1/rural-producers/535fe240-802e-4b21-be16-f450c79e4ef5",
+					"protocol": "http",
+					"host": [
+						"ec2-98-81-115-106",
+						"compute-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rural-producers",
+						"535fe240-802e-4b21-be16-f450c79e4ef5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update a rural producer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\r\n    \"farmName\":\"John Doe's new farm\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://ec2-98-81-115-106.compute-1.amazonaws.com/api/v1/rural-producers/535fe240-802e-4b21-be16-f450c79e4ef5",
+					"protocol": "http",
+					"host": [
+						"ec2-98-81-115-106",
+						"compute-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rural-producers",
+						"535fe240-802e-4b21-be16-f450c79e4ef5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete rural producer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://ec2-98-81-115-106.compute-1.amazonaws.com/api/v1/rural-producers/90da6469-a9e8-48d8-a850-25c575568f7f",
+					"protocol": "http",
+					"host": [
+						"ec2-98-81-115-106",
+						"compute-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rural-producers",
+						"90da6469-a9e8-48d8-a850-25c575568f7f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get graph data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-98-81-115-106.compute-1.amazonaws.com/api/v1/graph/graph-data",
+					"protocol": "http",
+					"host": [
+						"ec2-98-81-115-106",
+						"compute-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"graph",
+						"graph-data"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

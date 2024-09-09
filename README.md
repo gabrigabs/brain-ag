@@ -4,7 +4,7 @@
 <img  align="left" src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" /><img  align ="left" src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS" /><img align="left" src="https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white" alt="Prisma" /><img align ="left" src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" /><img align="left" src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white"/>
 </p>
 <br></br>
-An API that can manage rural producers farm data and also obtain detailed data with statistics on their farms
+An API that can manage rural producers farm data and also obtain detailed data with statistics of their farms
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@ An API that can manage rural producers farm data and also obtain detailed data w
 
 ## Overview
 
-The Rural Producer API is a RESTful API designed to manage rural producers and their associated data. The API provides a set of endpoints for creating, reading, updating, and deleting rural producer data and a endpoint that returns statistics off all rural producers farms.
+The Rural Producer API is a RESTful API designed to manage rural producers and their associated data. The API provides a set of endpoints for creating, reading, updating, and deleting rural producer data and a endpoint that returns statistics of all rural producers farms.
 
 ## Deployment
 
