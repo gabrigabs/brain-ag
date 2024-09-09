@@ -21,10 +21,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://ec2-98-81-115-106.compute-1.amazonaws.com/api/v1/rural-producers",
+					"raw": "http://ec2-18-206-189-157.compute-1.amazonaws.com/api/v1/rural-producers",
 					"protocol": "http",
 					"host": [
-						"ec2-98-81-115-106",
+						"ec2-18-206-189-157",
 						"compute-1",
 						"amazonaws",
 						"com"
@@ -44,10 +44,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-98-81-115-106.compute-1.amazonaws.com/api/v1/rural-producers",
+					"raw": "http://ec2-18-206-189-157.compute-1.amazonaws.com/api/v1/rural-producers",
 					"protocol": "http",
 					"host": [
-						"ec2-98-81-115-106",
+						"ec2-18-206-189-157",
 						"compute-1",
 						"amazonaws",
 						"com"
@@ -79,10 +79,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://ec2-98-81-115-106.compute-1.amazonaws.com/api/v1/rural-producers/535fe240-802e-4b21-be16-f450c79e4ef5",
+					"raw": "http://ec2-18-206-189-157.compute-1.amazonaws.com/api/v1/rural-producers/535fe240-802e-4b21-be16-f450c79e4ef5",
 					"protocol": "http",
 					"host": [
-						"ec2-98-81-115-106",
+						"ec2-18-206-189-157",
 						"compute-1",
 						"amazonaws",
 						"com"
@@ -112,10 +112,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://ec2-98-81-115-106.compute-1.amazonaws.com/api/v1/rural-producers/535fe240-802e-4b21-be16-f450c79e4ef5",
+					"raw": "http://ec2-18-206-189-157.compute-1.amazonaws.com/api/v1/rural-producers/535fe240-802e-4b21-be16-f450c79e4ef5",
 					"protocol": "http",
 					"host": [
-						"ec2-98-81-115-106",
+						"ec2-18-206-189-157",
 						"compute-1",
 						"amazonaws",
 						"com"
@@ -145,10 +145,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://ec2-98-81-115-106.compute-1.amazonaws.com/api/v1/rural-producers/90da6469-a9e8-48d8-a850-25c575568f7f",
+					"raw": "http://ec2-18-206-189-157.compute-1.amazonaws.com/api/v1/rural-producers/0d197c08-e84d-4ab4-bd68-5872d153ece3",
 					"protocol": "http",
 					"host": [
-						"ec2-98-81-115-106",
+						"ec2-18-206-189-157",
 						"compute-1",
 						"amazonaws",
 						"com"
@@ -157,7 +157,7 @@
 						"api",
 						"v1",
 						"rural-producers",
-						"90da6469-a9e8-48d8-a850-25c575568f7f"
+						"0d197c08-e84d-4ab4-bd68-5872d153ece3"
 					]
 				}
 			},
@@ -169,10 +169,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-98-81-115-106.compute-1.amazonaws.com/api/v1/graph/graph-data",
+					"raw": "http://ec2-18-206-189-157.compute-1.amazonaws.com/api/v1/graph/graph-data",
 					"protocol": "http",
 					"host": [
-						"ec2-98-81-115-106",
+						"ec2-18-206-189-157",
 						"compute-1",
 						"amazonaws",
 						"com"
